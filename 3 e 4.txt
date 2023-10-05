@@ -1,0 +1,39 @@
+3) 
+
+CL é usado para apontar para a área de memória onde os caracteres são lidos e escritos.
+DL é usado para controlar o loop e determinar quantas iterações serão realizadas.
+BL é usado para rastrear quantos caracteres ainda precisam ser transferidos e copiados.
+
+4)
+	org 0
+	jmp	inicio
+	org	10
+	db	"Eric Scarano Mitleton"
+	org	40	;define inicio	
+inicio:
+	MOV	CL,c0
+	MOV	DL,15
+	mov	bl,10
+							
+prox:	
+	MOV	AL,[bl]
+	MOV	[CL],AL
+	INC	CL		
+	inc	bl
+	dec	dl
+	jnz	prox
+inicio1:
+	MOV	CL,e0
+	MOV	DL,15
+	mov	bl,24
+			
+prox1:	
+	MOV	AL,[bl]
+	MOV	[CL],AL
+	INC	CL		
+	dec	bl
+	dec	dl
+	jnz	prox1
+	end
+
+
